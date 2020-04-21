@@ -1,7 +1,7 @@
 const superagent = require('superagent')
 const cheerio = require('cheerio')
 
-const listUrl = (type) => `https://movie.douban.com/j/search_subjects?type=movie&tag=${encodeURIComponent(type)}&sort=time&page_limit=10&page_start=0`
+const listUrl = (type) => `https://movie.douban.com/j/search_subjects?type=movie&tag=${encodeURIComponent(type)}&sort=time&page_limit=40&page_start=0`
 
 const type = process.argv[process.argv.length - 1]
 let listIndex = 0
