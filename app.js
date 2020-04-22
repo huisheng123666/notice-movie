@@ -7,7 +7,6 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const { connect } = require('./dbdata')
 const mongoose = require('mongoose')
-const Movie = mongoose.model('Movie')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -21,11 +20,9 @@ onerror(app)
 ;(async () => {
   await connect()
 
-  // await Movie.deleteMany({})
-  //
-  // await movieTask('热门')
-  // await movieTask('冷门佳片')
-  // await movieTask('豆瓣高分')
+  await movieTask('热门')
+  await movieTask('冷门佳片')
+  await movieTask('豆瓣高分')
 })()
 
 // middlewares
