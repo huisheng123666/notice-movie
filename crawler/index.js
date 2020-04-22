@@ -38,7 +38,7 @@ async function getDetail(html, list) {
   if (!videoHref) {
     list.splice(listIndex, 1)
     if (listIndex > 0) listIndex--
-    return
+    return null
   }
   const info = $('#info').text().split(' ')
   info.map((item, index) => {
@@ -82,6 +82,7 @@ async function getDetail(html, list) {
   for (listIndex; listIndex < list.length; listIndex++) {
     const html = await getHtml(list[listIndex].url)
     const detail = await getDetail(html, list)
+    if (!detail) continue
     list[listIndex] = {
       ...list[listIndex],
       ...detail

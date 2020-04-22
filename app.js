@@ -15,25 +15,17 @@ const movie = require('./routes/movie')
 
 const movieTask = require('./task')
 
-function sleep(time) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve()
-    }, time)
-  })
-}
-
 // error handler
 onerror(app)
 
 ;(async () => {
   await connect()
 
-  await Movie.deleteMany({})
-
-  await movieTask('热门')
-  await movieTask('冷门佳片')
-  await movieTask('豆瓣高分')
+  // await Movie.deleteMany({})
+  //
+  // await movieTask('热门')
+  // await movieTask('冷门佳片')
+  // await movieTask('豆瓣高分')
 })()
 
 // middlewares
