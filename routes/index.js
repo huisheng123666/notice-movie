@@ -6,6 +6,10 @@ router.get('/download/music', async (ctx, next) => {
   await send(ctx, 'music.apk', {root: path.resolve(__dirname, '../public')})
 })
 
+router.get('/download/movie', async (ctx, next) => {
+  await send(ctx, 'movie.apk', {root: path.resolve(__dirname, '../public')})
+})
+
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
     title: 'Hello Koa 2!'
