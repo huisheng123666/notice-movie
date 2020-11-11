@@ -8,20 +8,22 @@ const logger = require('koa-logger')
 const { connect } = require('./dbdata')
 const mongoose = require('mongoose')
 
+const Movie = mongoose.model('Movie')
+
 const index = require('./routes/index')
 const users = require('./routes/users')
 const movie = require('./routes/movie')
 
-const movieTask = require('./task')
+const movieTask = require('./task/hdmovie')
 
 // error handler
 onerror(app)
 
 ;(async () => {
   await connect()
-
-  await movieTask('热门')
-  await movieTask('冷门佳片')
+  // Movie.remove(() => {})
+  await movieTask('rmdy')
+  await movieTask('zxdy')
   await movieTask('豆瓣高分')
 })()
 

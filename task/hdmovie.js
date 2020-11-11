@@ -32,7 +32,6 @@ const movieTask = (type) => {
 
     child.on('message', async data => {
       let result = data.result
-      console.log(result)
       for (let i = 0; i < result.length; i++) {
         let movie = await Movie.findOne({id: result[i].id})
         if (!movie) {
